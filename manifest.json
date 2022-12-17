@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "WhatsAppIconRemover",
+  "version": "0.1.0",
+  "description": "Removes the annoying new profile icons from WhatsApp Web chats.",
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "permissions": [
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://web.whatsapp.com/",
+    "http://web.whatsapp.com/"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://web.whatsapp.com/",
+        "http://web.whatsapp.com/"
+      ],
+      "run_at": "document_end",
+      "js": [
+        "js/contentScript.js"
+      ]
+    }
+  ]
+}
